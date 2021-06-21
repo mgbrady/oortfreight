@@ -31,6 +31,6 @@ public class Ship implements Serializable{
 
     @NonNull
     @ManyToOne(fetch = FetchType.LAZY)
-    private Shipyard shipClass;
+    private Bluprint shipClass;
 
 }

@@ -13,7 +13,7 @@ import lombok.NonNull;
 @Data
 @Entity
 @Component
-public class Shipyard {
+public class Bluprint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long shipyardId;
@@ -24,12 +24,12 @@ public class Shipyard {
     @NonNull
     private Long shipPrice;
 
-    public Shipyard() {
+    public Bluprint() {
         shipClass = "default";
         shipPrice = 1l;
     }
 
-    public Shipyard(String sClass, Long sPrice) {
+    public Bluprint(String sClass, Long sPrice) {
         shipClass = sClass;
         shipPrice = sPrice;
     }
