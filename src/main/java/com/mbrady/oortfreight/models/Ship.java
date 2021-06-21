@@ -11,10 +11,8 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.stereotype.Component;
 
-import lombok.Data;
 import lombok.NonNull;
 
-@Data
 @Entity
 @Component
 public class Ship implements Serializable{
@@ -31,9 +29,29 @@ public class Ship implements Serializable{
 
     @NonNull
     @ManyToOne(fetch = FetchType.LAZY)
-    private Bluprint shipClass;
+    private Blueprint shipClass;
+
+    public void setShipClass(Blueprint shipClass) {
+        this.shipClass = shipClass;
+    }
+
+    public Blueprint getShipClass() {
+        return shipClass;
+    }
 
     public void setShipOwner(Player player) {
         shipOwner = player;
+    }
+
+    public Player getShipOwner() {
+        return shipOwner;
+    }
+
+    public void setShipName(String name) {
+        shipName = name;
+    }
+
+    public String getShipName() {
+        return shipName;
     }
 }
