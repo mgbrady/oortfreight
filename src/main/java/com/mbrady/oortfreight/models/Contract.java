@@ -43,4 +43,12 @@ public class Contract implements Serializable {
         contractName = cName;
         contractAward = cAward;
     }
+
+    public void setContractPlayer(Player player) {
+        contractPlayer = player;
+    }
+
+    public void setContractShip(Ship ship) {
+        contractShip = ship;
+    }
 }

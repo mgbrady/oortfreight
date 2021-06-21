@@ -25,6 +25,11 @@ public class ShipService {
         return shipRepo.findByShipOwner(player);
     }
 
+    public void addPlayerToShip(Ship ship, Player player) {
+        ship.setShipOwner(player);
+        shipRepo.saveAndFlush(ship);
+    }
+
     public void deleteShip(Ship ship) {
         shipRepo.delete(ship);
     }

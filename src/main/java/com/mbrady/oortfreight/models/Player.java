@@ -43,4 +43,6 @@ public class Player implements Serializable{
         playerRole = pRole;
         this.password = password;
     }
+
+    
 }

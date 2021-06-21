@@ -33,4 +33,7 @@ public class Ship implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY)
     private Bluprint shipClass;
 
+    public void setShipOwner(Player player) {
+        shipOwner = player;
+    }
 }
