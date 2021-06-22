@@ -22,7 +22,6 @@ public class ContractService {
     IContractRepo contractRepo;
 
     public Optional<List<Contract>> findByPlayer(Player player) {
-        log.info("looking for player");
         return contractRepo.findByContractPlayer(player);
     }
 
