@@ -44,5 +44,11 @@ public class Player implements Serializable{
         this.password = password;
     }
 
-    
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String name) {
+        playerName = name;
+    }
 }

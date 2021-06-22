@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 @Transactional
 public class ContractService {
@@ -19,6 +22,7 @@ public class ContractService {
     IContractRepo contractRepo;
 
     public Optional<List<Contract>> findByPlayer(Player player) {
+        log.info("looking for player");
         return contractRepo.findByContractPlayer(player);
     }
 

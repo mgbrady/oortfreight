@@ -28,9 +28,4 @@ public class Blueprint {
         shipClass = "default";
         shipPrice = 1l;
     }
-
-    public Blueprint(String sClass, Long sPrice) {
-        shipClass = sClass;
-        shipPrice = sPrice;
-    }
 }
