@@ -33,7 +33,7 @@ public class Contract implements Serializable {
 
     public Contract() {
         contractName = "default";
-        contractAward = 0l;
+        contractAward = 10000l;
     }
 
     public Contract(String name) {
