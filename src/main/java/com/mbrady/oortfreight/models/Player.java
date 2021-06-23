@@ -7,14 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.stereotype.Component;
-
 import lombok.Data;
 import lombok.NonNull;
 
 @Data
 @Entity
-@Component
 public class Player implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,10 +35,16 @@ public class Player implements Serializable{
         playerRole = "default";
     }
 
-    public Player(String pName, String pRole, String password) {
+    public Player(String name) {
+        this();
+        playerName = name;
+    }
+
+    public Player(String pName, String pRole, String password, Long monies) {
         playerName = pName;
         playerRole = pRole;
         this.password = password;
+        playerMonies = monies;
     }
 
     public String getPlayerName() {

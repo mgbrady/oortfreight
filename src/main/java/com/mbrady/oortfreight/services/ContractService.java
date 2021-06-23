@@ -21,6 +21,14 @@ public class ContractService {
     @Autowired
     IContractRepo contractRepo;
 
+    public List<Contract> getAllContracts() {
+        return contractRepo.findAll();
+    }
+
+    public Optional<List<Contract>> findAvailableContracts() {
+        return contractRepo.findByContractPlayerIsNull();
+    }
+
     public Optional<List<Contract>> findByPlayer(Player player) {
         return contractRepo.findByContractPlayer(player);
     }
