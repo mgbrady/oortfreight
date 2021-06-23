@@ -23,8 +23,6 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-<<<<<<< HEAD
-=======
     @Autowired
     PlayerService playerService;
 
@@ -63,5 +61,4 @@ public class HomeController {
         model.addAttribute("players", playerService.getAllPlayers());
         return "players";
     }
->>>>>>> html
 }

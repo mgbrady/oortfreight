@@ -10,9 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NonNull;
 
-@Data
 @Entity
 public class Contract implements Serializable {
     @Id
@@ -52,5 +52,13 @@ public class Contract implements Serializable {
 
     public void setContractShip(Ship ship) {
         contractShip = ship;
+    }
+
+    public String getContractName() {
+        return contractName;
+    }
+
+    public Long getContractAward() {
+        return contractAward;
     }
 }
