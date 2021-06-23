@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IContractRepo extends JpaRepository<Contract, Long> {
     Optional<List<Contract>> findByContractPlayer(Player player);
-    
+    Optional<List<Contract>> findByContractPlayerIsNull();
 }

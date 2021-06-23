@@ -1,0 +1,25 @@
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=
+        "http://www.thymeleaf.org http://www.thymeleaf.org
+        http://www.ultraq.net.nz/thymeleaf/layout http://www.ultraq.net.nz/thymeleaf/layout
+        http://www.thymeleaf.org/thymeleaf-extras-springsecurity4
+        http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+lang="en">
+<head>
+    <div th:replace = "fragments/header"></div>
+</head>
+<body>
+    <div th:replace = "fragments/navbar"></div>
+
+    <table>
+        <tr th:each = "contract : ${available_contracts}">
+            <td><span th:text = "${contract.contractName}"></span></td>
+            <td><span th:text = "${contract.contractAward}"></span></td>
+        </tr>
+    </table>
+
+</body>

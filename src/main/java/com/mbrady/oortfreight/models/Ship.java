@@ -9,12 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.springframework.stereotype.Component;
-
+import lombok.Data;
 import lombok.NonNull;
 
+@Data
 @Entity
-@Component
 public class Ship implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,13 +22,21 @@ public class Ship implements Serializable{
     @NonNull
     private String shipName;
 
-    @NonNull
+    //@NonNull
     @ManyToOne(fetch = FetchType.LAZY)
     private Player shipOwner;
 
-    @NonNull
+    //@NonNull
     @ManyToOne(fetch = FetchType.LAZY)
     private Blueprint shipClass;
+
+    public Ship() {
+        shipName = "Default";
+    }
+
+    public Ship(String name) {
+        shipName = name;
+    }
 
     public void setShipClass(Blueprint shipClass) {
         this.shipClass = shipClass;
@@ -45,13 +52,5 @@ public class Ship implements Serializable{
 
     public Player getShipOwner() {
         return shipOwner;
-    }
-
-    public void setShipName(String name) {
-        shipName = name;
-    }
-
-    public String getShipName() {
-        return shipName;
     }
 }
