@@ -35,8 +35,7 @@ public class PlayerService {
         return playerRepo.save(player);
     }
 
-    public Player removePlayer(Player player) {
-        playerRepo.delete(player);
-        return player;
+    public void removePlayer(Long id) {
+        playerRepo.deleteById(id);
     }
 }

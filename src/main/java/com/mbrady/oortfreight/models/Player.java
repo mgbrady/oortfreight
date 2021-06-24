@@ -54,4 +54,12 @@ public class Player implements Serializable{
     public void setPlayerName(String name) {
         playerName = name;
     }
+
+    public Long getPlayerMonies() {
+        return playerMonies;
+    }
+
+    public void setPlayerMonies(Long monies) {
+        playerMonies = monies;
+    }
 }

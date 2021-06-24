@@ -7,6 +7,8 @@ import com.mbrady.oortfreight.models.Contract;
 import com.mbrady.oortfreight.services.ContractService;
 import com.mbrady.oortfreight.models.Blueprint;
 import com.mbrady.oortfreight.services.BlueprintService;
+import com.mbrady.oortfreight.models.Player;
+import com.mbrady.oortfreight.services.PlayerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,6 +48,19 @@ public class AdminController {
         return new ArrayList<>();
     }
 
+    @Autowired
+    PlayerService playerService;
+
+    @ModelAttribute("player")
+    public Player playerModel() {
+        return new Player();
+    }
+
+    @ModelAttribute("manifest")
+    public List<Player> initManifest() {
+        return new ArrayList<>();
+    }
+
     @GetMapping("/contract_management")
     public String contract_management(Model model) {
         var contracts = contractService.findAvailableContracts().get();
@@ -82,6 +97,26 @@ public class AdminController {
 
     @PostMapping("/create_blueprint/")
     public String createBlueprint(@ModelAttribute("blueprint") Blueprint blueprint, Model model) {
+        model.addAttribute("blueprint", blueprint);
+        blueprintService.saveBlueprint(blueprint);
+        return "redirect:/admin/shipyard_management";
+    }
+
+    @GetMapping("/player_management")
+    public String getAllPlayers(Model model) {
+        var players = playerService.getAllPlayers();
+        model.addAttribute("manifest", players);
+        return "admin/player_management";
+    }
+
+    @GetMapping("/delete_player/{id}")
+    public String delete_player(@PathVariable Long id) {
+        playerService.removePlayer(id);
+        return "redirect:/admin/player_management";
+    }
+
+    @PostMapping("/create_player/")
+    public String createPlayer(@ModelAttribute("player") Blueprint blueprint, Model model) {
         model.addAttribute("blueprint", blueprint);
         blueprintService.saveBlueprint(blueprint);
         return "redirect:/admin/shipyard_management";

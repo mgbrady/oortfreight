@@ -1,0 +1,30 @@
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=
+        "http://www.thymeleaf.org http://www.thymeleaf.org
+        http://www.ultraq.net.nz/thymeleaf/layout http://www.ultraq.net.nz/thymeleaf/layout
+        http://www.thymeleaf.org/thymeleaf-extras-springsecurity4
+        http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+lang="en">
+<head>
+    <div th:replace = "fragments/header"></div>
+</head>
+<body>
+    <div th:replace = "fragments/navbar"></div>
+
+    <table>
+        <tr th:each = "player : ${manifest}">
+            <td><span th:text = "${player.playerId}"></span></td>
+            <td><span th:text = "${player.playerName}"></span></td>
+            <td><span th:text = "${player.playerMonies}"></span></td>
+            <td>
+                <form th:action = "@{/mod/delete_player/{id} (id = ${player.playerId})}" th:method = "get" th:object = "${player}">
+                    <input type = "submit" value = "delete">
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
