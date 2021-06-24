@@ -31,15 +31,28 @@ public class Ship implements Serializable{
     private Blueprint shipClass;
 
     public Ship() {
-        shipName = "Default";
     }
 
     public Ship(String name) {
         shipName = name;
     }
 
+    public Ship(String name, Player owner, Blueprint shipClass) {
+        shipName = name;
+        shipOwner = owner;
+        this.shipClass = shipClass;
+    }
+
     public void setShipClass(Blueprint shipClass) {
         this.shipClass = shipClass;
+    }
+
+    public String getShipName() {
+        return shipName;
+    }
+
+    public Long getShipId() {
+        return shipId;
     }
 
     public Blueprint getShipClass() {

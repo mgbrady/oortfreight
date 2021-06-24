@@ -15,5 +15,37 @@ lang="en">
 <body>
     <div th:replace = "fragments/navbar"></div>
 
+    Player
+    <table th:object = "${player}">
+        <tr><td>Id</td><td><span th:text = "*{playerId}"></span></td></tr>
+        <tr><td>Name</td><td><span th:text = "*{playerName}"></span></td></tr>
+        <tr><td>Credits</td><td><span th:text = "*{playerMonies}"></span></td></tr>
+    </table>
+
+    <br />
+    <br />
+    <br />
+
+    Contracts
+    <table>
+        <tr th:each = "contract : ${contracts}">
+            <td><span th:text = "${contract.contractId}"></span></td>
+            <td><span th:text = "${contract.contractName}"></span></td>
+            <td><span th:text = "${contract.contractAward}"></span></td>
+        </tr>
+    </table>
+
+    <br />
+    <br />
+    <br />
+
+    Ships
+    <table>
+        <tr th:each = "ship : ${ships}">
+            <td><span th:text = "${ship.shipId}"></span></td>
+            <td><span th:text = "${ship.shipName}"></span></td>
+            <td><span th:text = "${ship.shipClass.shipClass}"></span></td>
+        </tr>
+    </table>
 
 </body>

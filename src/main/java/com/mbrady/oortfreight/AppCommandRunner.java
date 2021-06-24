@@ -1,8 +1,10 @@
 package com.mbrady.oortfreight;
 
+import com.mbrady.oortfreight.dao.IBlueprintRepo;
 import com.mbrady.oortfreight.dao.IContractRepo;
 import com.mbrady.oortfreight.dao.IPlayerRepo;
 import com.mbrady.oortfreight.dao.IShipRepo;
+import com.mbrady.oortfreight.models.Blueprint;
 import com.mbrady.oortfreight.models.Contract;
 import com.mbrady.oortfreight.models.Player;
 import com.mbrady.oortfreight.models.Ship;
@@ -23,17 +25,46 @@ public class AppCommandRunner implements CommandLineRunner {
     IContractRepo contractRepo;
     @Autowired
     IShipRepo shipRepo;
+    @Autowired
+    IBlueprintRepo blueprintRepo;
 
     @Autowired
     PlayerService playerService;
 
     public void run(String... args) {
         initDatabase();
-        var contract = contractRepo.findById(1L).get();
         var player = playerRepo.findById(1L).get();
 
+        var contract = contractRepo.findById(1L).get();
         contract.setContractPlayer(player);
         contractRepo.save(contract);
+
+        contract = contractRepo.findById(2L).get();
+        contract.setContractPlayer(player);
+        contractRepo.save(contract);
+
+        contract = contractRepo.findById(3L).get();
+        contract.setContractPlayer(player);
+        contractRepo.save(contract);
+
+        var blueprint = new Blueprint("Yellowstone", 250l);
+        blueprintRepo.save(blueprint);
+
+        var ship = new Ship("Kalispell", player, blueprint);
+        shipRepo.save(ship);
+
+        blueprint = new Blueprint("Clearwater", 350l);
+        blueprintRepo.save(blueprint);
+
+        ship = new Ship("Helena", player, blueprint);
+        shipRepo.save(ship);
+
+        blueprint = new Blueprint("Clark Fork", 350l);
+        blueprintRepo.save(blueprint);
+
+        ship = new Ship("Whitefish", player, blueprint);
+        shipRepo.save(ship);
+
     }
 
     void initPlayers(String... args) {

@@ -45,18 +45,18 @@ public class PlayerController {
         return new ArrayList<>();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/overview/{id}")
     public String playerView(@PathVariable("id") Long id, Model model) {
         var player = playerService.getPlayerById(id);
         model.addAttribute("player", player);
 
-        var contracts = contractService.findByPlayer(player);
+        var contracts = contractService.findByPlayer(player).get();
         model.addAttribute("contracts", contracts);
 
         var ships = shipService.getShipsByOwner(player);
         model.addAttribute("ships", ships);
 
-        return "redirect:/player/overview";
+        return "/player/overview";
     }
 
 }
