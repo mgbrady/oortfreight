@@ -9,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import lombok.Data;
-import lombok.Getter;
 import lombok.NonNull;
 
 @Entity
@@ -46,6 +44,10 @@ public class Contract implements Serializable {
         contractAward = cAward;
     }
 
+    public Long getContractId() {
+        return contractId;
+    }
+
     public void setContractPlayer(Player player) {
         contractPlayer = player;
     }
@@ -58,7 +60,15 @@ public class Contract implements Serializable {
         return contractName;
     }
 
+    public void setContractName(String name) {
+        contractName = name;
+    }
+
     public Long getContractAward() {
         return contractAward;
+    }
+
+    public void setContractAward(Long award) {
+        contractAward = award;
     }
 }

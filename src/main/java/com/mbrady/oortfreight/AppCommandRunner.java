@@ -29,6 +29,11 @@ public class AppCommandRunner implements CommandLineRunner {
 
     public void run(String... args) {
         initDatabase();
+        var contract = contractRepo.findById(1L).get();
+        var player = playerRepo.findById(1L).get();
+
+        contract.setContractPlayer(player);
+        contractRepo.save(contract);
     }
 
     void initPlayers(String... args) {

@@ -25,4 +25,30 @@ public class Blueprint {
         shipClass = "default";
         shipPrice = 1l;
     }
+
+    public Blueprint(String shipClass, Long price) {
+        this();
+        this.shipClass = shipClass;
+        shipPrice = price;
+    }
+
+    public Long getShipyardId() {
+        return shipyardId;
+    }
+
+    public String getShipClass() {
+        return shipClass;
+    }
+
+    public void setShipClass(String shipClass) {
+        this.shipClass = shipClass;
+    }
+
+    public Long getShipPrice() {
+        return shipPrice;
+    }
+
+    public void setShipPrice(Long price) {
+        shipPrice = price;
+    }
 }

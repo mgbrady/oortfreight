@@ -61,4 +61,9 @@ public class HomeController {
         model.addAttribute("players", playerService.getAllPlayers());
         return "players";
     }
+
+    @GetMapping("/error")
+    public String errorView() {
+        return "error";
+    }
 }

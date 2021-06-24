@@ -25,6 +25,10 @@ public class ContractService {
         return contractRepo.findAll();
     }
 
+    public void saveContract(Contract contract) {
+        contractRepo.save(contract);
+    }
+
     public Optional<List<Contract>> findAvailableContracts() {
         return contractRepo.findByContractPlayerIsNull();
     }
@@ -45,5 +49,9 @@ public class ContractService {
 
     public void removeContract(Contract contract) {
         contractRepo.delete(contract);
+    }
+
+    public void deleteContractById(Long id) {
+        contractRepo.delete(contractRepo.findById(id).get());
     }
 }

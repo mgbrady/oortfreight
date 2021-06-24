@@ -16,12 +16,12 @@ lang="en">
     <div th:replace = "fragments/navbar"></div>
 
     <table>
-        <tr th:each = "contract : ${available_contracts}">
-            <td><span th:text = "${contract.contractId}"></span></td>
-            <td><span th:text = "${contract.contractName}"></span></td>
-            <td><span th:text = "${contract.contractAward}"></span></td>
+        <tr th:each = "blueprint : ${shipyard}">
+            <td><span th:text = "${blueprint.shipyardId}"></span></td>
+            <td><span th:text = "${blueprint.shipClass}"></span></td>
+            <td><span th:text = "${blueprint.shipPrice}"></span></td>
             <td>
-                <form th:action = "@{/admin/delete_contract/{id} (id = ${contract.contractId})}" th:method = "get" th:object = "${contract}">
+                <form th:action = "@{/admin/delete_blueprint/{id} (id = ${blueprint.shipyardId})}" th:method = "get" th:object = "${blueprint}">
                     <input type = "submit" value = "delete">
                 </form>
             </td>
@@ -30,9 +30,9 @@ lang="en">
     <table>
         <tr>
             <div>
-            <form th:action = "@{/admin/create_contract/}" method = "post" th:object = "${contract}">
-                <td><input type = "text" th:field = "*{contractName}"></td>
-                <td><input type = "text" th:field = "*{contractAward}"></td>
+            <form th:action = "@{/admin/create_blueprint/}" method = "post" th:object = "${blueprint}">
+                <td><input type = "text" th:field = "*{shipClass}"></td>
+                <td><input type = "text" th:field = "*{shipPrice}"></td>
                 <td><input type = "submit" value = "create"></td>
             </form>
             </div>
