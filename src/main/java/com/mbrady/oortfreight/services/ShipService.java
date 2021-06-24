@@ -36,4 +36,8 @@ public class ShipService {
     public void deleteShip(Ship ship) {
         shipRepo.delete(ship);
     }
+
+    public List<Ship> getShipsByOwner(Player player) {
+        return shipRepo.findByShipOwner(player).get();
+    }
 }
