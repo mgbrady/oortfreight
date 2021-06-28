@@ -16,6 +16,11 @@ lang="en">
     <div th:replace = "fragments/navbar"></div>
 
     <table>
+        <tr>
+            <td>playerId</td>
+            <td>playerName</td>
+            <td>playerMonies</td>
+        </tr>
         <tr th:each = "player : ${manifest}">
             <td><span th:text = "${player.playerId}"></span></td>
             <td><span th:text = "${player.playerName}"></span></td>

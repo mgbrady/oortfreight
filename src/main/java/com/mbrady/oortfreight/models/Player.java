@@ -47,6 +47,14 @@ public class Player implements Serializable{
         playerMonies = monies;
     }
 
+    public Long getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(Long id) {
+        playerId = id;
+    }
+
     public String getPlayerName() {
         return playerName;
     }

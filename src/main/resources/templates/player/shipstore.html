@@ -17,30 +17,19 @@ lang="en">
 
     <table>
         <tr>
-            <td>shipID</td>
-            <td>shipName</td>
-            <td>shipClass</td>
+        <td>BlueprintId</td>
+        <td>ShipClass</td>
+        <td>ShipPrice</td>
+        <td>ShipName</td>
         </tr>
-        <tr th:each = "blueprint : ${shipyard}">
+        <tr th:each = "blueprint : ${blueprints}">
             <td><span th:text = "${blueprint.shipyardId}"></span></td>
             <td><span th:text = "${blueprint.shipClass}"></span></td>
             <td><span th:text = "${blueprint.shipPrice}"></span></td>
-            <td>
-                <form th:action = "@{/admin/delete_blueprint/{id} (id = ${blueprint.shipyardId})}" th:method = "get" th:object = "${blueprint}">
-                    <input type = "submit" value = "delete">
-                </form>
-            </td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <div>
-            <form th:action = "@{/admin/create_blueprint/}" method = "post" th:object = "${blueprint}">
-                <td><input type = "text" th:field = "*{shipClass}"></td>
-                <td><input type = "text" th:field = "*{shipPrice}"></td>
-                <td><input type = "submit" value = "create"></td>
+            <form th:action = "@{/player/buyship/}" method = "post" th:object = "${ship}">
+                <td><input type = "text" th:field = "*{shipName}"></td>
+                <td><input type = "submit" value = "buy"></td>
             </form>
-            </div>
         </tr>
     </table>
 </body>

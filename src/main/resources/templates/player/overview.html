@@ -28,6 +28,11 @@ lang="en">
 
     Contracts
     <table>
+        <tr>
+            <td>contractId</td>
+            <td>contractName</td>
+            <td>contractAward</td>
+        </tr>
         <tr th:each = "contract : ${contracts}">
             <td><span th:text = "${contract.contractId}"></span></td>
             <td><span th:text = "${contract.contractName}"></span></td>
@@ -41,6 +46,11 @@ lang="en">
 
     Ships
     <table>
+        <tr>
+            <td>shipID</td>
+            <td>shipName</td>
+            <td>shipClass</td>
+        </tr>
         <tr th:each = "ship : ${ships}">
             <td><span th:text = "${ship.shipId}"></span></td>
             <td><span th:text = "${ship.shipName}"></span></td>

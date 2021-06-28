@@ -33,6 +33,10 @@ public class ShipService {
         shipRepo.saveAndFlush(ship);
     }
 
+    public void addShip(Ship ship) {
+        shipRepo.saveAndFlush(ship);
+    }
+
     public void deleteShip(Ship ship) {
         shipRepo.delete(ship);
     }

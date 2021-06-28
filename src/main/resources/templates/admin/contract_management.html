@@ -16,6 +16,11 @@ lang="en">
     <div th:replace = "fragments/navbar"></div>
 
     <table>
+        <tr>
+            <td>contractId</td>
+            <td>contractName</td>
+            <td>contractAward</td>
+        </tr>
         <tr th:each = "contract : ${available_contracts}">
             <td><span th:text = "${contract.contractId}"></span></td>
             <td><span th:text = "${contract.contractName}"></span></td>

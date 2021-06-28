@@ -76,7 +76,6 @@ public class AdminController {
 
     @PostMapping("/create_contract/")
     public String createContract(@ModelAttribute("contract") Contract contract, Model model) {
-        System.out.println(contract.getContractName());
         model.addAttribute("contract", contract);
         contractService.saveContract(contract);
         return "redirect:/admin/contract_management";
@@ -97,26 +96,6 @@ public class AdminController {
 
     @PostMapping("/create_blueprint/")
     public String createBlueprint(@ModelAttribute("blueprint") Blueprint blueprint, Model model) {
-        model.addAttribute("blueprint", blueprint);
-        blueprintService.saveBlueprint(blueprint);
-        return "redirect:/admin/shipyard_management";
-    }
-
-    @GetMapping("/player_management")
-    public String getAllPlayers(Model model) {
-        var players = playerService.getAllPlayers();
-        model.addAttribute("manifest", players);
-        return "admin/player_management";
-    }
-
-    @GetMapping("/delete_player/{id}")
-    public String delete_player(@PathVariable Long id) {
-        playerService.removePlayer(id);
-        return "redirect:/admin/player_management";
-    }
-
-    @PostMapping("/create_player/")
-    public String createPlayer(@ModelAttribute("player") Blueprint blueprint, Model model) {
         model.addAttribute("blueprint", blueprint);
         blueprintService.saveBlueprint(blueprint);
         return "redirect:/admin/shipyard_management";
